@@ -5,10 +5,14 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 
 class RESTController extends Controller
 {
+    use AuthorizesRequests, ValidatesRequests;
+
     public function findAllUsers(){
         try {
             $allUsers = User::all();

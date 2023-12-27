@@ -21,12 +21,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Route::resource('users',RESTController::class);
 
-Route::middleware(['adminAuth'])->group(function (){
-    Route::get('/', [RESTController::class,'findAllUsers']);
-    Route::get('/{id}',[RESTController::class, 'showSpecificUser']);
-    Route::post('/', [RESTController::class, 'storeUser']);
+//Route::middleware(['adminAuth'])->group(function (){
+//    Route::get('/', [RESTController::class,'findAllUsers']);
+//    Route::get('/admin/{id}',[RESTController::class, 'showSpecificUser']);
+//    Route::post('/', [RESTController::class, 'storeUser']);
+//
+//    Route::put('/{id}', [RESTController::class, 'updateUser']);
+//    Route::delete('/{id}', [RESTController::class, 'deleteUserByID']);
+//
+//});
 
-    Route::put('/{id}', [RESTController::class, 'updateUser']);
-    Route::delete('/{id}', [RESTController::class, 'deleteUserByID']);
 
-});
+Route::get('/', [RESTController::class,'findAllUsers']);
+Route::get('/{id}',[RESTController::class, 'showSpecificUser']);
+Route::post('/', [RESTController::class, 'storeUser']);
+Route::put('/{id}', [RESTController::class, 'updateUser']);
+Route::delete('/{id}', [RESTController::class, 'deleteUserByID']);

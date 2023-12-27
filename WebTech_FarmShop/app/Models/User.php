@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasFactory,Notifiable;
 
+    protected $fillable = ['name','email','phoneNumber','password'];
+
     public function orders()
     {
         return $this->hasMany(Order::class);
